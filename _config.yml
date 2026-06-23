@@ -1,3 +1,9 @@
 title: Kernel Tinkering
-Description: Anything that I'm curious about for more than 3 hours, goes here.'
+description: Anything that I'm curious about for more than 3 hours, goes here.
 theme: jekyll-theme-minimal
+
+# This is a GitHub *project* site (repo name "bored"), so it is served from a
+# subpath: https://weird-kid.github.io/bored/
+# These two settings make internal links and theme assets resolve correctly.
+url: "https://weird-kid.github.io"
+baseurl: "/bored"

@@ -1,8 +1,18 @@
-<html>
-  <head> I'm not sure, if I will commit to this. </head>
-  <body>
-    <p>
-      But if I do, it has a chance to be one of the best things that ever happen to me.
-    </p>
-  </body>
-</html>
+---
+layout: default
+---
+
+<p>
+  I'm not sure if I will commit to this. But if I do, it has a chance to be one
+  of the best things that ever happened to me.
+</p>
+
+<h2>Posts</h2>
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span> &mdash; {{ post.date | date: "%b %-d, %Y" }}</span>
+    </li>
+  {% endfor %}
+</ul>
