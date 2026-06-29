@@ -1,3 +1,10 @@
+---
+layout: post
+title: "How task_structs are organised using namespace"
+date: 2026-06-23 09:00:00 +0530
+categories: process 
+---
+
 
 ### How are task_structs structured between process & threads using  pid namespaces ?
 
