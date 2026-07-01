@@ -1,0 +1,328 @@
+/* ==========================================================================
+   Kernel Tinkering — readable blog theme
+   Goals: comfortable measure (line length), generous line-height, calm colours,
+   automatic light/dark. Overrides the jekyll-theme-minimal default layout.
+   ========================================================================== */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  /* Reading measure. Individual pages can widen this (see .wide). */
+  --measure: 46rem;
+
+  /* Light palette */
+  --bg:        #fcfbf7;
+  --fg:        #20242a;
+  --muted:     #5b636e;
+  --accent:    #b45309;   /* amber-700 */
+  --accent-2:  #2563eb;   /* blue-600  */
+  --border:    #e7e3d8;
+  --code-bg:   #f3f0e7;
+  --code-fg:   #1f2937;
+  --card-bg:   #ffffff;
+  --card-shadow: 0 1px 2px rgba(20, 24, 32, .06), 0 8px 24px rgba(20, 24, 32, .05);
+
+  /* Concept-map group colours */
+  --grp-slab:  #d97706;   /* amber  */
+  --grp-proc:  #2563eb;   /* blue   */
+  --graph-bg:  #ffffff;
+  --graph-edge:#c9c3b4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0f1216;
+    --fg:        #e7e6e1;
+    --muted:     #9aa3af;
+    --accent:    #f59e0b;
+    --accent-2:  #60a5fa;
+    --border:    #242a31;
+    --code-bg:   #161b22;
+    --code-fg:   #e7e6e1;
+    --card-bg:   #141a20;
+    --card-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+
+    --grp-slab:  #f59e0b;
+    --grp-proc:  #60a5fa;
+    --graph-bg:  #0c0f13;
+    --graph-edge:#333b45;
+  }
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+               Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 1.125rem;          /* 18px base — the main readability fix */
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Centered container. Pages widen it by setting --measure via body.wide. */
+.wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+body.wide { --measure: 62rem; }
+
+/* --------------------------------------------------------------------------
+   Header / nav / footer
+   -------------------------------------------------------------------------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  position: sticky;
+  top: 0;
+  backdrop-filter: saturate(160%) blur(8px);
+  z-index: 10;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: .9rem;
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  text-decoration: none;
+}
+.site-title:hover { color: var(--accent); }
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: .98rem;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--accent); }
+
+.content { padding-block: 2.5rem 3rem; }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-block: 2rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.site-footer p { margin: .2rem 0; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: .6rem;
+  background: var(--card-bg);
+  padding: .4rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: .4rem;
+  z-index: 20;
+}
+
+/* --------------------------------------------------------------------------
+   Prose / typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin: 2.2rem 0 .75rem;
+  scroll-margin-top: 5rem;
+}
+h1 { font-size: 2rem; margin-top: 0; }
+h2 {
+  font-size: 1.45rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--border);
+}
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1.05rem; }
+
+p, ul, ol, blockquote, pre, table { margin: 0 0 1.15rem; }
+
+a { color: var(--accent-2); text-underline-offset: 2px; }
+a:hover { text-decoration: underline; }
+
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: .35rem; }
+li::marker { color: var(--muted); }
+
+strong { font-weight: 650; }
+
+blockquote {
+  margin-inline: 0;
+  padding: .3rem 0 .3rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+img { max-width: 100%; height: auto; border-radius: .5rem; }
+
+/* Code */
+code, kbd, pre, samp {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+               "Liberation Mono", monospace;
+}
+:not(pre) > code {
+  background: var(--code-bg);
+  padding: .15em .4em;
+  border-radius: .35rem;
+  font-size: .88em;
+  word-break: break-word;
+}
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: 1rem 1.1rem;
+  border-radius: .6rem;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+pre code { background: none; padding: 0; font-size: inherit; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .96rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: .5rem .7rem;
+  text-align: left;
+}
+th { background: var(--code-bg); }
+
+/* --------------------------------------------------------------------------
+   Home page
+   -------------------------------------------------------------------------- */
+.intro {
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.post-list { list-style: none; padding: 0; margin: 0; }
+.post-list li {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+  margin: 0;
+}
+.post-list a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+}
+.post-list a:hover { color: var(--accent-2); }
+.post-list .post-meta {
+  display: block;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: .2rem;
+}
+
+/* Callout card (e.g. link to the concept map) */
+.callout {
+  display: block;
+  margin: 2rem 0;
+  padding: 1.25rem 1.4rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: .8rem;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: inherit;
+}
+.callout:hover { border-color: var(--accent); }
+.callout h3 { margin: 0 0 .3rem; }
+.callout p { margin: 0; color: var(--muted); }
+
+/* Post footer nav */
+.post .post-meta { color: var(--muted); margin-top: -.4rem; }
+
+/* --------------------------------------------------------------------------
+   Concept map
+   -------------------------------------------------------------------------- */
+.graph-panel {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: .9rem;
+  background: var(--graph-bg);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+.graph-canvas {
+  display: block;
+  width: 100%;
+  height: clamp(420px, 62vh, 640px);
+  touch-action: none;           /* let JS handle drags on touch */
+  cursor: grab;
+}
+.graph-canvas:active { cursor: grabbing; }
+
+.graph-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: .7rem 1rem;
+  border-top: 1px solid var(--border);
+  font-size: .9rem;
+  color: var(--muted);
+}
+.graph-legend { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+.graph-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+.dot { width: .8rem; height: .8rem; border-radius: 50%; display: inline-block; }
+.dot--slab { background: var(--grp-slab); }
+.dot--proc { background: var(--grp-proc); }
+
+.graph-reset {
+  margin-left: auto;
+  font: inherit;
+  color: var(--fg);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: .5rem;
+  padding: .35rem .8rem;
+  cursor: pointer;
+}
+.graph-reset:hover { border-color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   Small screens
+   -------------------------------------------------------------------------- */
+@media (max-width: 34rem) {
+  body { font-size: 1.06rem; }
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.3rem; }
+  .content { padding-block: 1.75rem 2.25rem; }
+}

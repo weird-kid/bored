@@ -5,10 +5,6 @@ date: 2026-06-23 09:00:00 +0530
 categories: process 
 ---
 
-
-### How are task_structs structured between process & threads using  pid namespaces ?
-
-
 (Note: ->fieldname refers to (struct task_struct *)->fieldname)
 
 ## What I know & what I don't 
@@ -21,7 +17,7 @@ categories: process
 I think this is a good enough startpoint.
 Lets verify what I know, first.
 
-# how task_struct looks differently for process & thread !
+## how task_struct looks differently for process & thread !
 
 When I mean different pid value, I mean inside kernelspace.
 Because in userspace, different threads share the same pid. Why?
@@ -33,12 +29,24 @@ By default, a threads ->files_struct (open fd table), ->signal_struct (pending w
 For more info read these [thread_share_pid](https://stackoverflow.com/questions/9305992/if-threads-share-the-same-pid-how-can-they-be-identified), [process vs thread](https://linuxvox.com/blog/linux-kernel-threading-vs-process-task-struct-vs-thread-info/)
 
 
-# How does pid hashing work & why is it needed?
+## How does pid hashing work & why is it needed?
 
 It was needed because kernel maintains a circular linked list for all task_struct in
 ->tasks. It is used when say kill(-1) is called.
 
 pid hashing does this in linear time. pid_hash[pid] = (pointer to task_struct).
 
-But, I'm confused about the scope of tasks within ->tasks & where pid namespace fits in. 
+I'm confused about the scope of tasks within ->tasks & where pid namespace fits in. 
+But, I'll still focus on how hashing takes place.
+Okay, I now  know how it works. Its saved in a excalidraw file called process_blog. 
+
+## Plan to acquire big picture. 
+
+Now, I am using copilot and verify the relation between the below data structures & queries.
+  	1. pid_t value <--> pid && pid <---> epid ?
+	2. pid_namespace <--> pidmap ? 
+	3. How pid recycling takes placed using above data structures ?
+	4. 
+
+
 

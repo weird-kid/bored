@@ -1,1 +1,7 @@
-Create interactive graph map like this https://blog.rishavs.in/posts/kernel-space-vs-user-space/
+1. Create interactive graph map like this https://blog.rishavs.in/posts/kernel-space-vs-user-space/.
+   When you have more that like 3 posts.
+
+2. Change theme setup, content is too compressed.
+   It should look more like https://biriukov.dev/docs/fd-pipe-session-terminal/3-process-groups-jobs-and-sessions/#sessions
+
+

@@ -1,0 +1,68 @@
+---
+layout: default
+title: Concept map
+description: An interactive map of how a few core Linux kernel data structures connect.
+body_class: wide
+---
+
+<h1>Concept map</h1>
+<p class="intro">
+  Two little clusters of kernel data structures. Drag a node and let go — the
+  springs make everything swing before it settles. On the left, how the slab
+  allocator layers onto the buddy allocator; on the right, how a
+  <code>task_struct</code> reaches a PID and its namespace.
+</p>
+
+<div class="graph-panel">
+  <canvas id="concept-map" class="graph-canvas" aria-label="Interactive graph of kernel data structures"></canvas>
+  <div class="graph-toolbar">
+    <div class="graph-legend">
+      <span><i class="dot dot--slab"></i> Slab allocator</span>
+      <span><i class="dot dot--proc"></i> Process / PID</span>
+    </div>
+    <button type="button" id="concept-map-reset" class="graph-reset">Shuffle</button>
+  </div>
+</div>
+
+<p class="muted">
+  Tip: fling a node across the canvas to watch its neighbours follow.
+</p>
+
+<script>
+  // Edit these two arrays to grow the map. `group` picks the colour
+  // ("slab" or "proc"); `links` are pairs of node ids.
+  window.CONCEPT_MAP_DATA = {
+    nodes: [
+      // Slab allocator: per-CPU cache -> global objects -> global slabs -> buddy
+      { id: "percpu",     label: "per-CPU cache",   group: "slab" },
+      { id: "globalobj",  label: "global objects",  group: "slab" },
+      { id: "globalslab", label: "global slabs",    group: "slab" },
+      { id: "buddy",      label: "buddy allocator", group: "slab" },
+
+      // Process / PID: task_struct -> pid & pids -> pid namespace, pid, epid
+      { id: "task",  label: "task_struct",    group: "proc" },
+      { id: "pid",   label: "pid",            group: "proc" },
+      { id: "pids",  label: "pids",           group: "proc" },
+      { id: "pidns", label: "pid namespace",  group: "proc" },
+      { id: "epid",  label: "epid",           group: "proc" }
+    ],
+    links: [
+      // slab chain
+      ["percpu", "globalobj"],
+      ["globalobj", "globalslab"],
+      ["globalslab", "buddy"],
+
+      // task_struct fans out to pid & pids
+      ["task", "pid"],
+      ["task", "pids"],
+      // pids array resolves to the struct pid
+      ["pids", "pid"],
+      // both reach the namespace
+      ["pid", "pidns"],
+      ["pids", "pidns"],
+      // pid <-> epid (global vs namespace-local number)
+      ["pid", "epid"]
+    ]
+  };
+</script>
+<script src="{{ '/assets/js/concept-map.js' | relative_url }}" defer></script>
