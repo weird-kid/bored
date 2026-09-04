@@ -1,9 +1,10 @@
 title: Kernel Tinkering
-description: Interesting thoughts go here.
-theme: jekyll-theme-minimal
+description: Daily notes on things I am learning.
 
 # This is a GitHub *project* site (repo name "bored"), so it is served from a
 # subpath: https://weird-kid.github.io/bored/
-# These two settings make internal links and theme assets resolve correctly.
+# These settings make internal links resolve correctly.
 url: "https://weird-kid.github.io"
 baseurl: "/bored"
+
+markdown: kramdown

@@ -39,14 +39,33 @@ pid hashing does this in linear time. pid_hash[pid] = (pointer to task_struct).
 I'm confused about the scope of tasks within ->tasks & where pid namespace fits in. 
 But, I'll still focus on how hashing takes place.
 Okay, I now  know how it works. Its saved in a excalidraw file called process_blog. 
+But it was the wrong question to ask. I wanted to understand more the the upid chain.
 
-## Plan to acquire big picture. 
 
-Now, I am using copilot and verify the relation between the below data structures & queries.
-  	1. pid_t value <--> pid && pid <---> epid ?
-	2. pid_namespace <--> pidmap ? 
-	3. How pid recycling takes placed using above data structures ?
-	4. 
+
+##  Big picture. 
+
+
+The struct pid represents pid info about a particular task_struct across all namespaces.
+The struct upid actually stores pid value per namespace.
+So, in short pid is namespace independent, where as upid is not.
+
+Next important thing is the upid pid_chain.
+If a task belongs across several namespace, a interconnected chain of upid is maintained for each namespace..
+
+This is the output of pid hashing. Then, we traverse the chain, get the upid in namespace we want. Then, find what pid points to it. 
+
+
+
+
+Say, a bash is running inside a docker container. (new pid namespace).
+That bash has pid 2 locally, and pid 12234 globally.
+
+bash_tsk->pids[PIDTYPE_PID]
+
+
+
+
 
 
 
