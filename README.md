@@ -1,12 +1,13 @@
-# Kernel Tinkering
+# OS Exploration
 
-A personal daily-learning blog built with Jekyll and published through GitHub
-Pages.
+A personal journal for exploring operating systems and recording the
+interesting things I think about and learn each day. Built with Jekyll and
+published through GitHub Pages.
 
-The goal of this repository is to keep the blog simple: posts are written in
-Markdown, images live in the repository, and GitHub Pages handles publishing.
-Most notes are about Linux, kernels, filesystems, processes, and related things
-I am learning.
+The goal is to do and document interesting things consistently. Posts are
+written in Markdown, images live in the repository, and GitHub Pages handles
+publishing. Many entries explore Linux, kernels, filesystems, processes, and
+other operating-system topics.
 
 Site: <https://weird-kid.github.io/bored/>
 
@@ -18,6 +19,7 @@ _layouts/        Page templates used by Jekyll
 assets/css/      Site styling
 assets/images/   Images and diagrams used in posts
 index.html       Homepage that lists all posts
+about.html       About page and profile links
 _config.yml      Jekyll and GitHub Pages configuration
 BLOGGING.md      Practical writing workflow guide
 ```
