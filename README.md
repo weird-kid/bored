@@ -25,12 +25,17 @@ _config.yml      Jekyll and GitHub Pages configuration
 BLOGGING.md      Practical writing workflow guide
 ```
 
-Post pages show sparse, monochrome ASCII sky art in wide side margins. The
-visitor's local clock selects a morning (06:00), afternoon (12:00), evening
-(17:00), or night (21:00) composition. Light mode shows a sun; dark mode shows
-a moon, regardless of the hour. No location permission or external service is
-used. Without JavaScript, the morning composition remains. Art is hidden when
-the margins are too narrow and when printing.
+Post pages have an ASCII box border and ASCII dash underlines beneath their
+headings. The wide side margins contain monochrome clouds, birds, balloons,
+mountains, trees, and water, with stars and constellations replacing birds and
+balloons in the evening and at night. The visitor's local clock automatically
+selects a morning (06:00), afternoon (12:00), evening (17:00), or night (21:00)
+composition. Light mode shows a sun; dark mode shows a moon, regardless of the
+hour. No location permission or external service is used. Without JavaScript,
+the morning composition remains, and the borders and underlines still work.
+Extra scenery appears in taller windows. Margin art is hidden when there is
+less than 8rem of gutter width or 28rem of usable height, and when printing;
+the post border and heading underlines remain on small screens.
 
 ## Writing posts
 

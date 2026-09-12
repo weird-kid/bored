@@ -4,21 +4,56 @@ layout: default
 <div class="post-sky" data-period="morning" aria-hidden="true">
   {% for side in (1..2) %}
   <div class="post-sky__gutter post-sky__gutter--{% if side == 1 %}left{% else %}right{% endif %}">
-    <div class="post-sky__body">
-      <span class="post-sky__sun">   \ | /
+    <div class="post-sky__scene">
+      <div class="post-sky__art post-sky__flock"><span class="post-sky__day">  v     v
+      v    v</span><span class="post-sky__night"> +     .    *
+    *    +</span></div>
+      <div class="post-sky__art post-sky__body"><span class="post-sky__sun">   \ | /
     .-.
 -- (   ) --
     '-'
-   / | \</span>
-      <span class="post-sky__moon">   _..._
+   / | \</span><span class="post-sky__moon">   _..._
  .'  .-'
 /   (
 \   '-.
- '.__.'</span>
-    </div>
-    <span class="post-sky__cloud">    .--.
+ '.__.'</span></div>
+      <span class="post-sky__art post-sky__cloud post-sky__cloud--high">     .--.
+  .-(    ).
+ (________)</span>
+      <span class="post-sky__art post-sky__cloud">    .--.
  .-(    ).
 (_________)</span>
+      <div class="post-sky__art post-sky__flight"><span class="post-sky__day">   .-"""-.
+  /  | |  \
+  \  | |  /
+   '.___.'
+     \_/</span><span class="post-sky__night"> *---.
+      \    *
+       *--'
+      /
+     +</span></div>
+      <span class="post-sky__art post-sky__cloud post-sky__extra">      .-.
+  .--(   )-.
+ (_________)</span>
+      <div class="post-sky__art post-sky__extra"><span class="post-sky__day"> v   v
+   v     v</span><span class="post-sky__night">  .      +
+     *     .</span></div>
+      {% if side == 1 %}
+      <span class="post-sky__art post-sky__landscape">    /\    /\
+   /  \  /  \
+  / /\ \/    \
+ / /  \  /\  /
+/_/____\/__\/</span>
+      {% else %}
+      <span class="post-sky__art post-sky__landscape">  /\     /\
+ /**\   /**\
+/****\ /****\
+  ||     ||
+__||_____||__</span>
+      {% endif %}
+      <span class="post-sky__art post-sky__water"> ~  ~~~   ~
+   ~~  ~~~  ~</span>
+    </div>
   </div>
   {% endfor %}
 </div>

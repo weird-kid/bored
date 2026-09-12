@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="48" viewBox="0 0 36 48">
+  <g fill="#808080" font-family="monospace" font-size="16" text-anchor="middle">
+    <text x="6" y="13">+</text>
+    <text x="18" y="13">-</text>
+    <text x="30" y="13">+</text>
+    <text x="6" y="29">|</text>
+    <text x="30" y="29">|</text>
+    <text x="6" y="45">+</text>
+    <text x="18" y="45">-</text>
+    <text x="30" y="45">+</text>
+  </g>
+</svg>
