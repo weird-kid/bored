@@ -1,0 +1,47 @@
+02 / CLOUD DRIFT
+
+A few soft cloud outlines, with the sun or moon partly behind one.
+The central box represents the post, not a proposed visible border.
+Planned theme pairing: sun in light mode, moon in dark mode. Draft only.
+
+DAY / sun and cloud on the upper right
+
+                                                                        \ | /
+                                                                         .-.
+                  +------------------------------------------+       -- (   )
+                  |         Just Interesting Things          |        .-'-'_
+                  |                                          |     .-(      ).
+                  |  Post title                              |    (___________)
+                  |                                          |
+                  |  The content stays clear and readable.   |
+                  |  All artwork lives outside this column.  |
+                  |                                          |
+       .--.       |  Clouds sit at different heights,        |
+    .-(    ).     |  leaving the centre completely open.     |
+   (_________)    |                                          |
+                  |                                          |
+                  |                                          |
+                  +------------------------------------------+
+
+
+NIGHT / crescent and cloud on the upper left
+
+        _..._
+      .'  .-'
+     /   (        +------------------------------------------+
+     \   '-.      |         Just Interesting Things          |
+      '.__.'      |                                          |
+       .--.       |  Post title                              |
+    .-(    ).     |                                          |
+   (_________)    |  The content stays clear and readable.   |
+                  |  All artwork lives outside this column.  |
+                  |                                          |
+                  |  Clouds sit at different heights,        |
+                  |  leaving the centre completely open.     |        .--.
+                  |                                          |     .-(    ).
+                  |                                          |    (_________)
+                  |                                          |
+                  +------------------------------------------+
+
+Placement: offset clouds, no repeated pattern or movement.
+On narrow screens: hide the artwork rather than squeeze the post.

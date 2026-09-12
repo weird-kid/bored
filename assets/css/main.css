@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OS Exploration — readable blog theme
+   Just Interesting Things — readable blog theme
    Goals: comfortable measure (line length), generous line-height, calm colours,
    automatic light/dark. Overrides the jekyll-theme-minimal default layout.
    ========================================================================== */
@@ -247,6 +247,66 @@ th { background: var(--code-bg); }
 
 /* Post footer nav */
 .post .post-meta { color: var(--muted); margin-top: -.4rem; }
+
+/* Each gutter hides its artwork unless there is room outside the post. */
+.post-sky {
+  pointer-events: none;
+  user-select: none;
+  color: var(--fg);
+}
+
+.post-sky__gutter {
+  position: fixed;
+  inset-block: 7rem 3rem;
+  width: max(0px, calc((100% - var(--measure)) / 2 - 2rem));
+  container-type: inline-size;
+  overflow: hidden;
+  opacity: .32;
+}
+.post-sky__gutter--left { left: 1rem; }
+.post-sky__gutter--right { right: 1rem; }
+
+.post-sky__body,
+.post-sky__cloud {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: pre;
+  font: .7rem/1.3 ui-monospace, SFMono-Regular, "Liberation Mono", monospace;
+}
+.post-sky__body { top: 12%; }
+.post-sky__cloud { top: 55%; }
+.post-sky__sun { display: block; }
+.post-sky__moon { display: none; }
+
+@container (min-width: 8rem) {
+  .post-sky[data-period="morning"] .post-sky__gutter--left .post-sky__body,
+  .post-sky[data-period="afternoon"] .post-sky__gutter--right .post-sky__body,
+  .post-sky[data-period="afternoon"] .post-sky__gutter--left .post-sky__cloud,
+  .post-sky[data-period="evening"] .post-sky__gutter--left .post-sky__body,
+  .post-sky[data-period="night"] .post-sky__gutter--right .post-sky__body {
+    display: block;
+  }
+}
+
+.post-sky[data-period="evening"] .post-sky__body {
+  top: auto;
+  bottom: 10%;
+}
+.post-sky[data-period="evening"] .post-sky__body::after {
+  content: "___________";
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-sky__sun { display: none; }
+  .post-sky__moon { display: block; }
+}
+
+@media print {
+  .post-sky { display: none; }
+}
 
 /* --------------------------------------------------------------------------
    Small screens

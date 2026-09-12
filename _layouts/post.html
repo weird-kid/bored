@@ -1,6 +1,28 @@
 ---
 layout: default
 ---
+<div class="post-sky" data-period="morning" aria-hidden="true">
+  {% for side in (1..2) %}
+  <div class="post-sky__gutter post-sky__gutter--{% if side == 1 %}left{% else %}right{% endif %}">
+    <div class="post-sky__body">
+      <span class="post-sky__sun">   \ | /
+    .-.
+-- (   ) --
+    '-'
+   / | \</span>
+      <span class="post-sky__moon">   _..._
+ .'  .-'
+/   (
+\   '-.
+ '.__.'</span>
+    </div>
+    <span class="post-sky__cloud">    .--.
+ .-(    ).
+(_________)</span>
+  </div>
+  {% endfor %}
+</div>
+<script src="{{ '/assets/js/post-sky.js' | relative_url }}" defer></script>
 <article class="post">
   <h1>{{ page.title }}</h1>
   <p><em>{{ page.date | date: "%B %-d, %Y" }}</em></p>

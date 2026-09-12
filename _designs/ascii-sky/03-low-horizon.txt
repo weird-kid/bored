@@ -1,0 +1,51 @@
+03 / LOW HORIZON
+
+Mostly empty sky, with the sun or moon low beside the end of the post.
+The central box represents the post, not a proposed visible border.
+Planned theme pairing: sun in light mode, moon in dark mode. Draft only.
+
+DAY / setting sun low on the left
+
+
+                  +------------------------------------------+
+                  |         Just Interesting Things          |
+                  |                                          |
+                  |  Post title                              |
+                  |                                          |
+                  |  The content stays clear and readable.   |
+                  |  All artwork lives outside this column.  |
+                  |                                          |
+                  |  Almost all of the sky is empty.         |
+                  |  A quiet horizon closes the page.        |
+                  |                                          |
+       \ | /      |                                          |
+        .-.       |                                          |
+    -- (   ) --   +------------------------------------------+
+  ______'-'____                                                    ___________
+       -  -                                                           - -
+     -      -                                                       -     -
+
+
+NIGHT / rising moon low on the right
+
+
+                  +------------------------------------------+
+                  |         Just Interesting Things          |
+                  |                                          |
+                  |  Post title                              |
+                  |                                          |
+                  |  The content stays clear and readable.   |
+                  |  All artwork lives outside this column.  |
+                  |                                          |
+                  |  Almost all of the sky is empty.         |
+                  |  A quiet horizon closes the page.        |
+                  |                                          |        _..._
+                  |                                          |      .'  .-'
+                  |                                          |     /   (
+                  +------------------------------------------+     \   '-.
+  _____________                                                   __'.__.'___
+       -  -                                                           - -
+     -      -                                                       -     -
+
+Placement: tied to the end of the post, not floating over the text.
+On narrow screens: hide the artwork rather than squeeze the post.

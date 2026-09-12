@@ -1,0 +1,47 @@
+01 / QUIET SKY
+
+Sparse, small sky details in the side margins. No animation or colour.
+The central box represents the post, not a proposed visible border.
+Planned theme pairing: sun in light mode, moon in dark mode. Draft only.
+
+DAY / small sun high on the left
+
+       \ | /
+        .-.
+    -- (   ) --    +------------------------------------------+
+        '-'       |         Just Interesting Things          |
+       / | \      |                                          |
+                  |  Post title                              |
+                  |                                          |
+                  |  The content stays clear and readable.   |
+                  |  All artwork lives outside this column.  |
+                  |                                          |
+                  |  A little sky beside the reading,        |
+                  |  with plenty of space to do nothing.     |
+                  |                                          |
+                  |                                          |
+                  |                                          |
+                  +------------------------------------------+
+
+
+NIGHT / small crescent high on the right
+
+                                                                        _..._
+                                                                      .'  .-'
+                  +------------------------------------------+       /   (
+                  |         Just Interesting Things          |       \   '-.
+                  |                                          |        '.__.'
+                  |  Post title                              |
+                  |                                          |
+          .       |  The content stays clear and readable.   |
+                  |  All artwork lives outside this column.  |
+                  |                                          |
+                  |  A little sky beside the reading,        |              .
+                  |  with plenty of space to do nothing.     |
+                  |                                          |
+                  |                                          |
+                  |                                          |
+                  +------------------------------------------+
+
+Placement: sun and moon stay near the top; almost-empty lower margins.
+On narrow screens: hide the artwork rather than squeeze the post.
